@@ -6,7 +6,7 @@
 
     --text-2xs: 0.3rem;
     --text-xs: 0.5rem;
-    --text-sm: 0.75rem;
+    --text-sm: 0.825rem;
     --text-base: 1rem;
     --text-med: 1.25rem;
     --text-lg: 1.5rem;
@@ -24,7 +24,7 @@
     --second-color: #4d3309;
     --neutral-color: #919191;
 
-    --text-description-color: rgb(53, 53, 53);
+    --text-description-color: rgb(78, 78, 78);
 }
 
 h1, h2, h3, h4, h5, figure, p, ol, ul, body {
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, p, a {
 }
 
 button {
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     border-radius: 0.5rem;
     border-style: none;
 
@@ -73,8 +73,8 @@ button:active {
 
 .page-header {
     position: relative;
-    box-shadow: 0px 4px 14px 2px rgba(0,0,0,0.35);
-    padding: 1.5rem;
+    box-shadow: 0px 4px 14px 2px rgba(0,0,0,0.2);
+    padding: 1.5rem 2.5rem;
 
     display: flex;
     align-items: center;
@@ -82,7 +82,13 @@ button:active {
 }
 
 .page-body {
-    padding: 1.5rem;
+    padding: 2.5rem;
+
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: min-content;
+    gap: 1.5rem;
 }
 
 /* styling for header section */
@@ -108,8 +114,46 @@ button:active {
 }
 
 .book-adder {
-    margin-right: 3rem;
+
     margin-left: auto;
 }
 
 /* styling of book card and its components */
+.book-card {
+    padding: 1.2rem;
+    padding-top: 2rem;
+
+    max-width: 250px;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cover-image {
+    max-width: 200px;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+}
+
+.book-description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: flex-start;
+
+    width: 80%;
+}
+
+.book-description > h3 {
+    font-size: var(--text-base);
+}
+
+.book-description > p {
+    color: var(--text-description-color);
+    font-size: var(--text-sm);
+}
