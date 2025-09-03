@@ -24,18 +24,25 @@ function Book(title, author, pages, isRead) {
     }
 }
 
-function addBookToLibrary(newBook) {
-    myLibrary.push(newBook);
-}
-
 function displayLibraryBooks() {
     for (book of myLibrary) {
         console.log(book.info());
     }
 }
 
-const hobbit = new Book("The Hobbit", "Tolkein", 295, false);
-const bible = new Book("The Bible", "God", 1000, true);
-addBookToLibrary(hobbit);
-addBookToLibrary(bible);
-displayLibraryBooks();
+function openForm() {
+    document.getElementById("my-form").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("my-form").style.display = "none";
+}
+
+function main() {
+    const openFormButton = document.querySelector("#book-adder");
+    openFormButton.addEventListener("click", () => {
+        openForm();
+    })
+}
+
+main();

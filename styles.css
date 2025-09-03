@@ -1,5 +1,4 @@
-/* normalise default browser styling */
-@import "modern-normalize";
+/* reset default browser styling */
 
 :root {
     line-height: 1.5;
@@ -22,7 +21,7 @@
     --main-color-d: #ffc61b;
     --main-color-d2: #d5a103;
     --second-color: #4d3309;
-    --neutral-color: #919191;
+    --neutral-color: #e6e6e6;
 
     --text-description-color: rgb(78, 78, 78);
 }
@@ -36,7 +35,7 @@ ol[role="list"], ul[role="list"] {
     padding-inline: 0;
 }
 
-h1, h2, h3, h4, h5, p, a {
+h1, h2, h3, h4, h5, p, a, label {
     font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;  
     /* font-size: inherit;
     font-weight: inherit; */
@@ -55,14 +54,15 @@ button {
 
     font-size: var(--font-bold);
     background-color: var(--main-color);
+    opacity: 0.75;
 }
 
 button:hover {
-    background-color: var(--main-color-d);
+    opacity: 0.85;
 }
 
 button:active {
-    background-color: var(--main-color-d2);
+    opacity: 1;
 }
 
 /* layout of page */
@@ -113,7 +113,7 @@ button:active {
     padding: 0rem 0.75rem;
 }
 
-.book-adder {
+#book-adder {
 
     margin-left: auto;
 }
@@ -158,3 +158,48 @@ button:active {
     color: var(--text-description-color);
     font-size: var(--text-sm);
 }
+
+/* styling of add book form */
+.form-popup {
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 2rem 2.5rem;
+
+    border-radius: 1rem;
+    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#add-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+label {
+    font-weight: var(--font-medium);
+}
+
+.form-input > input {
+    min-width: 250px;
+    border-style: none;
+    border-radius: 0.5rem;
+    background-color: var(--neutral-color);
+    height: 2.5rem;
+
+    padding: 0.4rem 0.8rem;
+}
+
