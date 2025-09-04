@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, p, a, label {
     width: 1.75rem;
 }
 
-button {
+.button {
     padding: 0.8rem 1rem;
     border-radius: 0.5rem;
     border-style: none;
@@ -57,12 +57,26 @@ button {
     opacity: 0.75;
 }
 
-button:hover {
+.button:hover {
     opacity: 0.85;
 }
 
-button:active {
+.button:active {
     opacity: 1;
+}
+
+.close.button {
+    padding: 0;
+    border-radius: 0.2rem;
+    font-weight: 800;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--neutral-color);
+}
+
+.close.button:hover {
+    background-color: #ad282882;
 }
 
 /* layout of page */
@@ -113,7 +127,7 @@ button:active {
     padding: 0rem 0.75rem;
 }
 
-#book-adder {
+#open-form {
 
     margin-left: auto;
 }
@@ -175,6 +189,12 @@ button:active {
     display: none;
     flex-direction: column;
     gap: 1rem;
+}
+
+.form-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 #add-book-form {

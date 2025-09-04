@@ -16,13 +16,16 @@
                 <img class="icon" src="./images/magnify.svg" alt="search icon">
                 <input type="text">
             </div>
-            <button id="book-adder">+ Add Book</button>
+            <button class="button" id="open-form">+ Add Book</button>
         </div>
         <div class="form-popup" id="my-form">
-                <h2>Add a book to the library!</h2>
+                <div class="form-header">
+                    <h2>Add a book to the library!</h2>
+                    <button class="close button" id="close-form">X</button>
+                </div>
                 <form id="add-book-form">
                     <div class="form-input">
-                        <label for="title">Title</label>
+                        <label for="title">Book Title</label>
                         <input type="text" id="title" name="title" placeholder="The Hobbit" required>
                     </div>
                     <div class="form-input">

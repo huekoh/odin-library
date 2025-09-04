@@ -39,10 +39,15 @@ function closeForm() {
 }
 
 function main() {
-    const openFormButton = document.querySelector("#book-adder");
+    const openFormButton = document.querySelector("#open-form");
+    const closeFormButton = document.querySelector("#close-form");
+
     openFormButton.addEventListener("click", () => {
         openForm();
-    })
+    });
+    closeFormButton.addEventListener("click", () => {
+        closeForm();
+    });
 }
 
 main();
