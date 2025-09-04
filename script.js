@@ -22,6 +22,23 @@ function Book(title, author, pages, isRead) {
     this.setReadStatus = function(status) {
         this.isRead = status;
     }
+
+    this.getTitle = function() {
+        return this.title;
+    }
+
+    this.getAuthor = function() {
+        return this.author;
+    }
+
+    this.getPages = function() {
+        return this.pages;
+    }
+
+    this.getIsRead = function() {
+        return this.isRead;
+    }
+
 }
 
 function displayLibraryBooks() {
@@ -53,10 +70,51 @@ function addBook(event) {
 
     myLibrary.push(newBook);
 
-    displayLibraryBooks();
+    populatePageBoard();
 
     form.reset();
     closeForm();
+}
+
+function populatePageBoard() {
+    console.log("these are the books in the library:");
+    displayLibraryBooks();
+
+    const pageBoard = document.querySelector(".page-body");
+
+    for (book of myLibrary) {
+        const bookCard = document.createElement("div");
+        bookCard.classList.add("book-card");
+        
+        const coverImage = document.createElement("img");
+        coverImage.classList.add("cover-image");
+        coverImage.src = "./images/book_cover_default.png";
+        coverImage.alt = `${book.title} cover`;
+
+        const bookDescription = document.createElement("div");
+        bookDescription.classList.add("book-description");
+
+        const title = document.createElement("h3");
+        title.classList.add("title");
+        title.textContent = book.getTitle();
+
+        const author = document.createElement("p");
+        author.classList.add("author");
+        author.textContent = book.getAuthor();
+
+        const pages = document.createElement("p");
+        pages.classList.add("pages");
+        pages.textContent = book.getPages();
+
+        bookDescription.appendChild(title);
+        bookDescription.appendChild(author);
+        bookDescription.appendChild(pages);
+
+        bookCard.appendChild(coverImage);
+        bookCard.appendChild(bookDescription);
+
+        pageBoard.appendChild(bookCard);
+    }
 }
 
 /* main program */
@@ -73,6 +131,7 @@ function main() {
         closeForm();
     });
     form.addEventListener("submit", (event) => {
+        console.log("submit button has been hit!")
         addBook(event);
     });
 }
