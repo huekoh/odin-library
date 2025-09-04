@@ -38,15 +38,42 @@ function closeForm() {
     document.getElementById("my-form").style.display = "none";
 }
 
+function addBook(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    const title = formData.get("title");
+    const author = formData.get("author");
+    const pages = parseInt(formData.get("pages"));
+    const isRead = formData.get("isRead") !== null;
+
+    const newBook = new Book(title, author, pages, isRead);
+
+    myLibrary.push(newBook);
+
+    displayLibraryBooks();
+
+    form.reset();
+    closeForm();
+}
+
+/* main program */
 function main() {
+    // implement form buttons
     const openFormButton = document.querySelector("#open-form");
     const closeFormButton = document.querySelector("#close-form");
+    const form = document.querySelector("#add-book-form");
 
     openFormButton.addEventListener("click", () => {
         openForm();
     });
     closeFormButton.addEventListener("click", () => {
         closeForm();
+    });
+    form.addEventListener("submit", (event) => {
+        addBook(event);
     });
 }
 

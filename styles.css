@@ -17,9 +17,9 @@
     --font-semibold: 600;
     --font-bold: 700;
 
-    --main-color: #ffd500;
-    --main-color-d: #ffc61b;
-    --main-color-d2: #d5a103;
+    --main-color: #ffd500dc;
+    --main-color-d: #ffd500;
+    --main-color-d2: #ffbf00;
     --second-color: #4d3309;
     --neutral-color: #e6e6e6;
 
@@ -54,15 +54,14 @@ h1, h2, h3, h4, h5, p, a, label {
 
     font-size: var(--font-bold);
     background-color: var(--main-color);
-    opacity: 0.75;
 }
 
 .button:hover {
-    opacity: 0.85;
+    background-color: var(--main-color-d);
 }
 
 .button:active {
-    opacity: 1;
+    background-color: var(--main-color-d2);
 }
 
 .close.button {
@@ -77,6 +76,10 @@ h1, h2, h3, h4, h5, p, a, label {
 
 .close.button:hover {
     background-color: #ad282882;
+}
+
+.submit.button {
+    width: 100px;
 }
 
 /* layout of page */
@@ -128,7 +131,6 @@ h1, h2, h3, h4, h5, p, a, label {
 }
 
 #open-form {
-
     margin-left: auto;
 }
 

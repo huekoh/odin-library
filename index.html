@@ -19,29 +19,30 @@
             <button class="button" id="open-form">+ Add Book</button>
         </div>
         <div class="form-popup" id="my-form">
-                <div class="form-header">
-                    <h2>Add a book to the library!</h2>
-                    <button class="close button" id="close-form">X</button>
-                </div>
-                <form id="add-book-form">
-                    <div class="form-input">
-                        <label for="title">Book Title</label>
-                        <input type="text" id="title" name="title" placeholder="The Hobbit" required>
-                    </div>
-                    <div class="form-input">
-                        <label for="author">Author</label>
-                        <input type="text" id="author" name="author" placeholder="J.R.R Tolkein" required>
-                    </div>
-                    <div class="form-input">
-                        <label for="pages">Number of Pages</label>
-                        <input type="number" id="pages" name="pages" min="1" required>
-                    </div>
-                    <div>
-                        <label for="title">Have you read this book?</label>
-                        <input type="checkbox" id="isRead" name="isRead" required>
-                    </div>
-                </form>
+            <div class="form-header">
+                <h2>Add a book to the library!</h2>
+                <button class="close button" id="close-form">X</button>
             </div>
+            <form id="add-book-form">
+                <div class="form-input">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title" name="title" placeholder="The Hobbit" required>
+                </div>
+                <div class="form-input">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="J.R.R Tolkein" required>
+                </div>
+                <div class="form-input">
+                    <label for="pages">Number of Pages</label>
+                    <input type="number" id="pages" name="pages" min="1" required>
+                </div>
+                <div>
+                    <label for="isRead">Have you read this book?</label>
+                    <input type="checkbox" id="isRead" name="isRead">
+                </div>
+                <button type="submit" class="submit button">Submit</button>
+            </form>
+        </div>
         <div class="page-body">
             <div class="book-card">
                 <img class="cover-image" src="./images/prodigal_god_cover.png">
