@@ -1,6 +1,14 @@
 const myLibrary = [];
 
-function Book(title, author, pages, isRead) {
+const book1 = new Book("The Prodigal God", "Timothy Keller", 192, false, "./images/prodigal_god_cover.png");
+const book2 = new Book("The Lion, the Witch & the Wardrobe", "C.S. Lewis", 180, false, "./images/narnia_cover.png");
+const book3 = new Book("Drawing Near: A Life of Intimacy with God", "John Bevere", 244, false, "./images/drawing_near_cover.png");
+
+myLibrary.push(book1);
+myLibrary.push(book2);
+myLibrary.push(book3);
+
+function Book(title, author, pages, isRead, coverImage = null) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor.")
     }
@@ -9,6 +17,8 @@ function Book(title, author, pages, isRead) {
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+    this.coverImage = coverImage;
+
 
     this.info = function() {
         const message = `${this.title} by ${this.author}, ${this.pages} pages, `;
@@ -39,6 +49,10 @@ function Book(title, author, pages, isRead) {
         return this.isRead;
     }
 
+    this.getCoverImage = function() {
+        return this.coverImage;
+    }
+
 }
 
 function displayLibraryBooks() {
@@ -65,15 +79,33 @@ function addBook(event) {
     const author = formData.get("author");
     const pages = parseInt(formData.get("pages"));
     const isRead = formData.get("isRead") !== null;
+    
+    const imageFile = formData.get("imageUpload");
 
-    const newBook = new Book(title, author, pages, isRead);
+    if (imageFile && imageFile.size > 0) {
+        const reader = new FileReader();
 
-    myLibrary.push(newBook);
+        reader.onload = function(e) {
+            console.log("an image file exists, creating a book object with cover image");
+            const newBook = new Book(title, author, pages, isRead, e.target.result);
+            myLibrary.push(newBook);
+            console.log("pushed to library");
 
-    populatePageBoard();
+            populatePageBoard();
+            form.reset();
+            closeForm();
+        }
 
-    form.reset();
-    closeForm();
+        reader.readAsDataURL(imageFile);
+    } else {
+        const newBook = new Book(title, author, pages, isRead);
+        myLibrary.push(newBook);
+
+        populatePageBoard();
+        form.reset();
+        closeForm();
+        console.log("pushed to library");
+    }
 }
 
 function populatePageBoard() {
@@ -81,6 +113,7 @@ function populatePageBoard() {
     displayLibraryBooks();
 
     const pageBoard = document.querySelector(".page-body");
+    pageBoard.innerHTML = "";
 
     for (book of myLibrary) {
         const bookCard = document.createElement("div");
@@ -88,8 +121,13 @@ function populatePageBoard() {
         
         const coverImage = document.createElement("img");
         coverImage.classList.add("cover-image");
-        coverImage.src = "./images/book_cover_default.png";
-        coverImage.alt = `${book.title} cover`;
+        if (book.getCoverImage()) {
+            coverImage.src = book.getCoverImage();
+            coverImage.alt = `${book.title} cover`;
+        } else {  
+            coverImage.src = "./images/book_cover_default.png";
+            coverImage.alt = "default book cover";
+        }
 
         const bookDescription = document.createElement("div");
         bookDescription.classList.add("book-description");
@@ -104,7 +142,7 @@ function populatePageBoard() {
 
         const pages = document.createElement("p");
         pages.classList.add("pages");
-        pages.textContent = book.getPages();
+        pages.textContent = `${book.getPages()} pages`;
 
         bookDescription.appendChild(title);
         bookDescription.appendChild(author);
@@ -119,6 +157,8 @@ function populatePageBoard() {
 
 /* main program */
 function main() {
+    populatePageBoard();
+
     // implement form buttons
     const openFormButton = document.querySelector("#open-form");
     const closeFormButton = document.querySelector("#close-form");
