@@ -144,10 +144,16 @@ function populatePageBoard() {
         pages.classList.add("pages");
         pages.textContent = `${book.getPages()} pages`;
 
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove");
+        removeButton.classList.add("button");
+        removeButton.textContent = "X";
+
         bookDescription.appendChild(title);
         bookDescription.appendChild(author);
         bookDescription.appendChild(pages);
 
+        bookCard.appendChild(removeButton);
         bookCard.appendChild(coverImage);
         bookCard.appendChild(bookDescription);
 
@@ -163,6 +169,24 @@ function main() {
     const openFormButton = document.querySelector("#open-form");
     const closeFormButton = document.querySelector("#close-form");
     const form = document.querySelector("#add-book-form");
+    const pageBoard = document.querySelector(".page-body");
+
+    // Event delegation for remove buttons
+    pageBoard.addEventListener("click", (event) => {
+        if (event.target.classList.contains("remove")) {
+            // Handle remove button click
+            const bookCard = event.target.closest(".book-card");
+            const bookIndex = Array.from(pageBoard.children).indexOf(bookCard);
+            
+            // Remove from library array
+            myLibrary.splice(bookIndex, 1);
+            
+            // Remove from DOM
+            bookCard.remove();
+            
+            console.log(`Book removed. Library now has ${myLibrary.length} books`);
+        }
+    });
 
     openFormButton.addEventListener("click", () => {
         openForm();
