@@ -1,252 +1,269 @@
 /* reset default browser styling */
 
 :root {
-    line-height: 1.5;
+  line-height: 1.5;
 
-    --text-2xs: 0.3rem;
-    --text-xs: 0.5rem;
-    --text-sm: 0.825rem;
-    --text-base: 1rem;
-    --text-med: 1.25rem;
-    --text-lg: 1.5rem;
-    --text-xl: 1.75rem;
-    --text-2xl: 2rem;
+  --text-2xs: 0.3rem;
+  --text-xs: 0.5rem;
+  --text-sm: 0.825rem;
+  --text-base: 1rem;
+  --text-med: 1.25rem;
+  --text-lg: 1.5rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2rem;
 
-    --font-normal: 400;
-    --font-medium: 500;
-    --font-semibold: 600;
-    --font-bold: 700;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
 
-    --main-color: #ffd500dc;
-    --main-color-d: #ffd500;
-    --main-color-d2: #ffbf00;
-    --second-color: #4d3309;
-    --neutral-color: #e6e6e6;
+  --main-color: #ffd500dc;
+  --main-color-d: #ffd500;
+  --main-color-d2: #ffbf00;
+  --second-color: #4d3309;
+  --neutral-color: #e6e6e6;
 
-    --text-description-color: rgb(78, 78, 78);
+  --text-description-color: rgb(78, 78, 78);
 }
 
-h1, h2, h3, h4, h5, figure, p, ol, ul, body {
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul,
+body {
+  margin: 0;
 }
 
-ol[role="list"], ul[role="list"] {
-    list-style: none;
-    padding-inline: 0;
+ol[role="list"],
+ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
 }
 
-h1, h2, h3, h4, h5, p, a, label {
-    font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;  
-    /* font-size: inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+label {
+  font-family: Inter, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  /* font-size: inherit;
     font-weight: inherit; */
 }
 
 /* common classes */
 
 .icon {
-    width: 1.75rem;
+  width: 1.75rem;
 }
 
 .button {
-    padding: 0.8rem 1rem;
-    border-radius: 0.5rem;
-    border-style: none;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  border-style: none;
 
-    font-size: var(--font-bold);
-    background-color: var(--main-color);
+  font-size: var(--font-bold);
+  background-color: var(--main-color);
 }
 
 .button:hover {
-    background-color: var(--main-color-d);
+  background-color: var(--main-color-d);
 }
 
 .button:active {
-    background-color: var(--main-color-d2);
+  background-color: var(--main-color-d2);
 }
 
 .close.button {
-    padding: 0;
-    border-radius: 0.2rem;
-    font-weight: 800;
-    text-align: center;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--neutral-color);
-    margin-left: auto;
+  padding: 0;
+  border-radius: 0.2rem;
+  font-weight: 800;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--neutral-color);
+  margin-left: auto;
 }
 
 .close.button:hover {
-    background-color: #ad282882;
+  background-color: #ad282882;
 }
 
 .remove.button {
-    padding: 0;
-    border-radius: 0.2rem;
-    font-weight: 800;
-    text-align: center;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--neutral-color);
-    margin-left: auto;
+  padding: 0;
+  border-radius: 0.2rem;
+  font-weight: 800;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--neutral-color);
+  margin-left: auto;
 }
 
 .remove.button:hover {
-    background-color: #ad282882;
+  background-color: #ad282882;
 }
 
 .submit.button {
-    width: 100px;
+  width: 100px;
 }
 
 /* layout of page */
 #page-container {
-    display: grid;
-    grid-template-rows: 85px 1fr;
+  display: grid;
+  grid-template-rows: 85px 1fr;
 }
 
 .page-header {
-    position: relative;
-    box-shadow: 0px 4px 14px 2px rgba(0,0,0,0.2);
-    padding: 1.5rem 2.5rem;
+  position: relative;
+  box-shadow: 0px 4px 14px 2px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2.5rem;
 
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .page-body {
-    padding: 2.5rem;
+  padding: 2.5rem;
 
-    overflow-y: scroll;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: min-content;
-    gap: 1.5rem;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: min-content;
+  gap: 1.5rem;
 }
 
 /* styling for header section */
 .page-header > .vr {
-    border-left: 0.1rem solid black;
-    height: 3rem;
+  border-left: 0.1rem solid black;
+  height: 3rem;
 }
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .search-bar > input {
-    border: 0.1rem solid black;
-    border-radius: 1.25rem;
+  border: 0.1rem solid black;
+  border-radius: 1.25rem;
 
-    height: 1.75rem;
-    min-width: 400px;
+  height: 1.75rem;
+  min-width: 400px;
 
-    padding: 0rem 0.75rem;
+  padding: 0rem 0.75rem;
 }
 
 #open-form {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 /* styling of book card and its components */
 .book-card {
-    padding: 1.2rem;
-    padding-top: 2rem;
+  padding: 1.2rem;
+  padding-top: 2rem;
 
-    max-width: 250px;
-    border-radius: 1rem;
-    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+  max-width: 250px;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 
-    position: relative;
+  position: relative;
 }
 
 .book-card > .button {
-    position: absolute;
-    top: 4%;
-    right: 6%;
+  position: absolute;
+  top: 4%;
+  right: 6%;
 }
 
 .cover-image {
-    max-height: 280px;
-    width: auto;
-    height: auto;
+  max-height: 280px;
+  width: auto;
+  height: auto;
 }
 
 .book-description {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: flex-start;
 
-    width: 80%;
+  width: 80%;
 }
 
 .book-description > h3 {
-    font-size: var(--text-base);
+  font-size: var(--text-base);
 }
 
 .book-description > p {
-    color: var(--text-description-color);
-    font-size: var(--text-sm);
+  color: var(--text-description-color);
+  font-size: var(--text-sm);
 }
 
 /* styling of add book form */
 .form-popup {
-    position: fixed;
-    z-index: 1;
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    padding: 2rem 2.5rem;
+  padding: 2rem 2.5rem;
 
-    border-radius: 1rem;
-    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
 
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .form-header {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 #add-book-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .form-input {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 label {
-    font-weight: var(--font-medium);
+  font-weight: var(--font-medium);
 }
 
 .form-input > input {
-    min-width: 250px;
-    border-style: none;
-    border-radius: 0.5rem;
-    background-color: var(--neutral-color);
-    height: 2.5rem;
+  min-width: 250px;
+  border-style: none;
+  border-radius: 0.5rem;
+  background-color: var(--neutral-color);
+  height: 2.5rem;
 
-    padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0.8rem;
 }
-
