@@ -179,6 +179,53 @@ function populatePageBoard() {
   }
 }
 
+function addFormValidation() {
+  const form = document.getElementById("add-book-form");
+  const inputs = form.querySelectorAll("input[required]");
+
+  inputs.forEach((input) => {
+    const errorSpan = input.parentElement.querySelector(".error-message");
+
+    input.addEventListener("input", () => {
+      if (input.validity.valid) {
+        errorSpan.textContent = "";
+      } else {
+        showError(input, errorSpan);
+      }
+    });
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let isValid = true;
+    inputs.forEach((input) => {
+      const errorSpan = input.parentElement.querySelector(".error-message");
+      if (!input.validity.valid) {
+        showError(input, errorSpan);
+        isValid = false;
+      } else {
+        errorSpan.textContent = "";
+      }
+    });
+
+    if (isValid) {
+      addBook(event);
+    }
+  });
+}
+
+function showError(input, errorSpan) {
+  if (input.validity.valueMissing) {
+    errorSpan.textContent = "This field is required.";
+  } else if (input.validity.typeMismatch) {
+    errorSpan.textContent = "Please enter a valid value.";
+  } else if (input.validity.rangeUnderflow) {
+    errorSpan.textContent = `Minimum value is ${input.min}.`;
+  } else {
+    errorSpan.textContent = "Invalid input.";
+  }
+}
+
 /* main program */
 function main() {
   populatePageBoard();
@@ -206,16 +253,15 @@ function main() {
     }
   });
 
+  addFormValidation();
+
   openFormButton.addEventListener("click", () => {
     openForm();
   });
   closeFormButton.addEventListener("click", () => {
     closeForm();
   });
-  form.addEventListener("submit", (event) => {
-    console.log("submit button has been hit!");
-    addBook(event);
-  });
+  f;
 }
 
 main();
